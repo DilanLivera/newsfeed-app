@@ -4,11 +4,11 @@ using ConsoleApp;
 Console.WriteLine("----Newsfeed App----");
 
 // List of RSS feed URIs
-const string microsoftDevBlogsUri = "https://devblogs.microsoft.com/dotnet/feed/";
+Dictionary<string, string> urls = new DotnetCreatorsRssFeedUrls().Urls;
 
 // Get RSS feed content
 var httpClient = new HttpClient();
-HttpResponseMessage responseMessage = await httpClient.GetAsync(microsoftDevBlogsUri);
+HttpResponseMessage responseMessage = await httpClient.GetAsync(urls["Khalid Abuhakmeh"]);
 
 responseMessage.EnsureSuccessStatusCode();
 
